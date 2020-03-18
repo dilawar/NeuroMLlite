@@ -4,10 +4,11 @@ from collections import OrderedDict
 
 def print_(text, print_it=False):
     prefix = "neuromllite >>> "
-    if not isinstance(text, str): 
-        text = ('%s'%text).decode('ascii')
+    if isinstance(text, list):
+        text = '\n'.join(text)
+    if isinstance(text, bytes): 
+        text = text.decode('ascii')
     if print_it:
-        
         print("%s%s"%(prefix, text.replace("\n", "\n"+prefix)))
     
     
